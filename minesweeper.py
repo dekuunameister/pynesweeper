@@ -194,7 +194,7 @@ def play_game(board, proxy_board, num_mines):
 		if board[down][right] == '*':
 			print('YOU LOSE!')
 			print('You lasted', end - start, 'seconds.')
-            display_board(board)
+			display_board(board)
 			return False
 		else:
 			proxy_board[down][right] = board[down][right]

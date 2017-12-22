@@ -2,7 +2,6 @@
 
 from random import randint, randrange
 from copy import deepcopy
-from timeit import timeit
 
 def make_board(width, height, num_mines):
 	""" Makes the board and the board the user sees. """
@@ -186,7 +185,6 @@ def play_game(board, proxy_board, num_mines):
 	answer = input('Would you like to read the rules? Enter y for yes. ')
 	if answer == 'y' or answer == 'Y':
 		show_rules()
-	start = timeit()
 	while tiles_swept != len(board)*len(board[0]):
 		down = int(input('Choose the row of your tile: '))
 		right = int(input('Choose the column of your tile: '))
@@ -194,14 +192,13 @@ def play_game(board, proxy_board, num_mines):
 			down = int(input('Out of bounds.  Choose the row again: '))
 			right = int(input('Now choose the column again: '))
 		if board[down][right] == '*':
-			end = timeit()
 			print('YOU LOSE!')
 			print('You lasted', end - start, 'seconds.')
+            display_board(board)
 			return False
 		else:
 			proxy_board[down][right] = board[down][right]
 			display_board(proxy_board)
-	end = timeit()
 	print('Congratulations!  You found all the mines in', end-start, 'seconds.')
 	return True
 
@@ -213,6 +210,8 @@ def main():
     print('3: 50x50')
     print('4: 100x100')
     choice = input('Choose 1, ' + '2, ' + '3, ' + 'or 4: ')
+    while choice != '1' and choice != '2' and choice != '3' and choice != '4':
+        choice = input('Choose 1, ' + '2, ' + '3, ' + 'or 4: ')
     if choice == '1':
     	height = 10
     	width = 10

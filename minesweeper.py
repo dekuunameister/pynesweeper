@@ -186,8 +186,14 @@ def play_game(board, proxy_board, num_mines):
 	if answer == 'y' or answer == 'Y':
 		show_rules()
 	while tiles_swept != len(board)*len(board[0]):
-		down = int(input('Choose the row of your tile: '))
-		right = int(input('Choose the column of your tile: '))
+		down = ''
+		right = ''
+		while not down.isdigit():
+			down = input('Choose the row of your tile: ')
+		while not right.isdigit():
+			right = input('Choose the column of your tile: ')
+		down = int(down)
+		right = int(right)
 		while down >= len(board[0]) or right >= len(board):
 			down = int(input('Out of bounds.  Choose the row again: '))
 			right = int(input('Now choose the column again: '))
@@ -223,10 +229,11 @@ def main():
     elif choice == '4':
     	height = 100
     	width = 100
-    num_mines = width * height
-    while num_mines >= width * height:
+    num_mines = ''
+    while not num_mines.isdigit() or int(num_mines) >= width * height:
     	num_mines = \
-    	int(input('Choose the number of mines.  It must be less than the number of tiles: '))
+    	input('Choose the number of mines.  It must be less than the number of tiles: ')
+    num_mines = int(num_mines)
     if num_mines == 0:
     	print('You think I would let you play a game with zero mines?!!  HAHAHA game over')
     	return

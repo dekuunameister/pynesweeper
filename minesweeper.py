@@ -161,7 +161,6 @@ def make_board(width, height, num_mines):
 				if board[i+1][j+1] == '*':
 					mines += 1
 				board[i][j] = str(mines)
-
 	return board, proxy_board
 
 def display_board(board):
@@ -171,9 +170,9 @@ def display_board(board):
 			print(tile + '|', end = '')
 			counter += 1
 		print('')
+	print('Expand the screen if the tiles look weird.')
 
 def show_rules():
-	print('Expand the screen if the tiles look weird.')
 	print('You will be asked to choose the coordinate of the '
 			'tile you wish to uncover.  First, choose how far '
 			'down, starting from 0 as the uppermost row.  Then, '

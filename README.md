@@ -3,5 +3,9 @@ Slightly simplified version of minesweeper written in Python, where only one til
 
 Setup:
 After you clone this repo, run the following line in your terminal:
+
 chmod +x pynesweeper.py
-Then you can run the game by typing ./pynesweeper.py
+
+Then you can run the game by typing
+
+./pynesweeper.py

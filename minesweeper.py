@@ -11,7 +11,7 @@ def make_board(width, height, num_mines):
 	proxy_row = []
 	for i in range(height):
 		for j in range(width):
-			row.append('0')
+			row.append('_')
 			proxy_row.append('_')
 		board.append(row)
 		proxy_board.append(proxy_row)
@@ -210,25 +210,25 @@ def play_game(board, proxy_board, num_mines):
 def main():
     # Get the dimensions of the board
     print('You can play on a board with the following dimensions.')
-    print('1: 10x10')
-    print('2: 25x25')
-    print('3: 50x50')
-    print('4: 100x100')
+    print('1: 5x5')
+    print('2: 10x10')
+    print('3: 15x15')
+    print('4: 20x20')
     choice = input('Choose 1, ' + '2, ' + '3, ' + 'or 4: ')
     while choice != '1' and choice != '2' and choice != '3' and choice != '4':
         choice = input('Choose 1, ' + '2, ' + '3, ' + 'or 4: ')
     if choice == '1':
+    	height = 5
+    	width = 5
+    elif choice == '2':
     	height = 10
     	width = 10
-    elif choice == '2':
-    	height = 25
-    	width = 25
     elif choice == '3':
-    	height = 50
-    	width = 50
+    	height = 15
+    	width = 15
     elif choice == '4':
-    	height = 100
-    	width = 100
+    	height = 20
+    	width = 20
     num_mines = ''
     while not num_mines.isdigit() or int(num_mines) >= width * height:
     	num_mines = \

@@ -193,13 +193,12 @@ def play_game(board, proxy_board, num_mines):
 			right = int(input('Now choose the column again: '))
 		if board[down][right] == '*':
 			print('YOU LOSE!')
-			print('You lasted', end - start, 'seconds.')
 			display_board(board)
 			return False
 		else:
 			proxy_board[down][right] = board[down][right]
 			display_board(proxy_board)
-	print('Congratulations!  You found all the mines in', end-start, 'seconds.')
+	print('Congratulations!  You found all the mines.')
 	return True
 
 def main():

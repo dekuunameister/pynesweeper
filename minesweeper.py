@@ -173,6 +173,7 @@ def display_board(board):
 		print('')
 
 def show_rules():
+	print('Expand the screen if the tiles look weird.')
 	print('You will be asked to choose the coordinate of the '
 			'tile you wish to uncover.  First, choose how far '
 			'down, starting from 0 as the uppermost row.  Then, '
